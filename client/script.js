@@ -85,6 +85,7 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv)
 
+  // This function is for adding Server and Client
   const response = await fetch('http://localhost:5000', {
         method: 'POST',
         headers: {
