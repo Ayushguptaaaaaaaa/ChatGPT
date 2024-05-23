@@ -5,7 +5,7 @@ const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
-
+// This Fucntion is for the dots before answering query, for 300 milisecs, thena gain dots shows up, 4 dots at a time
 function loader(element) {
   element.textContent=''
 
@@ -18,6 +18,7 @@ function loader(element) {
   }, 300);
 }
 
+// This function is for Tying text letter by letter
 function typeText(element, text) {
   let index = 0
 
