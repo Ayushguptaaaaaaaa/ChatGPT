@@ -1,32 +1,37 @@
 import express from 'express'
 import * as dotenv from 'dotenv'
-import cors from 'cors'
+import cors from 'cors' // Helps in Cross Origin Requests
 import { Configuration, OpenAIApi } from 'openai'
 
-dotenv.config()
+dotenv.config()   // To be able to use the configurations
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Instanve of Congiguration
 const openai = new OpenAIApi(configuration);
 
-const app = express()
-app.use(cors())
-app.use(express.json())
 
+const app = express()
+app.use(cors()) // Allows our server to bring requests from Frontend
+app.use(express.json()) //Passes Json from frontend to backend
+
+// Allows us to recieve data from frontend
 app.get('/', async (req, res) => {
   res.status(200).send({
-    message: 'Hello from CodeX!'
+    message: 'Hello from CodeGPT!'
   })
 })
 
+// Allows us to have a body or a Payload
 app.post('/', async (req, res) => {
     try {
       const prompt = req.body.prompt;
   
       const response = await openai.createCompletion({
-        model: "text-davinci-003",
+        // From OpenAI
+        model: "text-davinci-003", 
         prompt: `${prompt}`,
         temperature: 0, // Higher values means the model will take more risks.
         max_tokens: 3000, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
