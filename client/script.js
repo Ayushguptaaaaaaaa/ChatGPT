@@ -42,7 +42,7 @@ function generateUniqueId() {
 
   return `id-${timestamp}-${hexadecimalString}`;
 }
-
+// This is for ChatStripe- To distinguish Between Usertexts and AI texts;
 function chatStripe(isAi, value, uniqueId) {
   return (
       `
