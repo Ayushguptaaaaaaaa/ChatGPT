@@ -61,6 +61,7 @@ function chatStripe(isAi, value, uniqueId) {
   )
 }
 
+// Trigger to Generate the AI generated Response:-
 const handleSubmit = async (e) => {
   e.preventDefault()
 
